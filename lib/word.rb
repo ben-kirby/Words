@@ -1,5 +1,6 @@
 class Word
-  attr_accessor :new_word, :definition, :id
+  attr_accessor :new_word, :id, :picture
+  attr_reader :definition
   @@words = []
 
   def initialize(attributes)
@@ -14,7 +15,7 @@ class Word
   end
 
   def add_definition(attributes)
-    new_definition = attributes.fetch('new_definition')
+    new_definition = attributes.fetch('definition')
     @definition.push(new_definition)
   end
 

@@ -37,9 +37,9 @@
   </div>
 <% else %>
   <div class="row">
-    <form action="'/word/'" method="post">
+    <form action='/word/<%= @list.id%>' method="post">
       <div class="form-group">
-        <input type="text" name="new_definition" placeholder="Add a definition">
+        <input type="text" name="definition" placeholder="Add a definition">
       </div>
       <br>
       <button type="submit" name="button">Submit!</button>
