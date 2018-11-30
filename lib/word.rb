@@ -1,5 +1,5 @@
 class Word
-  attr_accessor :new_word, :definitionlist, :id
+  attr_accessor :new_word, :definition, :id
   @@words = []
 
   def initialize(attributes)

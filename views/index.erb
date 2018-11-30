@@ -1,26 +1,49 @@
 <div class="row">
-<% if @list.kind_of?(Array) %>
-  <% @list.each do |i| %>
-    <a href="/word/<%= i.id %>"><%= i.new_word %></a>
+  <% if @list.kind_of?(Array) %>
+  <ul>
+    <% @list.each do |i| %>
+        <li><a href="/word/<%= i.id %>"><%= i.new_word %></a></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= @list.new_word %></h5>
+        <p class="card-text"><%= @list.definition %></p>
+        <a href="/" class="card-link">Back to the list!</a>
+      </div>
+    </div>
   <% end %>
+</div>
+
+<br>
+
+<% if @list.kind_of?(Array) %>
+  <div class="row">
+    <form action="/" method="post">
+      <div class="form-group">
+        <input type="text" name="new_word" placeholder="New Word">
+      </div>
+      <div class="for-group">
+        <input type="text" name="definition" placeholder="Definition">
+      </div>
+      <br>
+      <button type="submit" name="button">Submit!</button>
+    </form>
+  </div>
 <% else %>
-  <% return false %>
+  <div class="row">
+    <form action="/" method="post">
+      <div class="form-group">
+        <input type="text" name="new_word" placeholder="New Word">
+      </div>
+      <br>
+      <button type="submit" name="button">Submit!</button>
+    </form>
+  </div>
 <% end %>
 
-</div>
 
-<div class="row">
-  <form action="/" method="post">
-    <div class="form-group">
-      <input type="text" name="new_word" placeholder="New Word">
-    </div>
-
-    <div class="for-group">
-      <input type="text" name="definition" placeholder="Definition">
-    </div>
-    <button type="submit" name="button">Submit!</button>
-  </form>
-</div>
 
 
 <%  %>
