@@ -5,5 +5,19 @@ require './lib/word'
 require 'pry'
 
 get ('/') do
+  @list = Word.all()
+  erb(:index)
+end
+
+post ('/') do
+  add_word = Word.new(params)
+  add_word.save()
+  @list = Word.all()
+  erb(:index)
+end
+
+get (/definition/:id) do
+  id = params[:id]
+  @list = Word.find(id)
   erb(:index)
 end
