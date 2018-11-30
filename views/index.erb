@@ -6,15 +6,16 @@
     <% end %>
   </ul>
   <% else %>
-    <div class="card" style="width: 18rem;">
+    <div class="card mb-3">
+      <img class="card-img-top" src="<%= @list.picture%>">
       <div class="card-body">
         <h5 class="card-title"><%= @list.new_word %></h5>
         <% @list.definition.each do |i| %>
-          <ul>
-            <li><p class="card-text"><%= i %></p></li>
-          </ul>
+          
+            <p class="card-text"><%= i %></p>
+
         <% end %>
-        <a href="/" class="card-link">Back to the list!</a>
+        <a href="/" class="btn btn-primary">Back to the list!</a>
       </div>
     </div>
   <% end %>
@@ -32,7 +33,7 @@
         <input type="text" name="definition" placeholder="Definition">
       </div>
       <br>
-      <button type="submit" name="button">Submit!</button>
+      <button class="btn btn-primary" type="submit" name="button">Submit!</button>
     </form>
   </div>
 <% else %>
@@ -41,8 +42,11 @@
       <div class="form-group">
         <input type="text" name="definition" placeholder="Add a definition">
       </div>
+      <div class="form-group">
+        <input type="text" name="photo_url" placeholder="Add a picture!">
+      </div>
       <br>
-      <button type="submit" name="button">Submit!</button>
+      <button class="btn btn-primary" type="submit" name="button">Submit!</button>
     </form>
   </div>
 <% end %>

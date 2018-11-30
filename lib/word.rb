@@ -7,6 +7,7 @@ class Word
     @new_word = attributes.fetch(:new_word)
     @definition = []
     @definition.push(attributes.fetch(:definition))
+    @picture = "http://www.datacenterdude.com/wp-content/uploads/2015/08/google-alphabet.jpg"
     @id = @@words.length() + 1
   end
 
@@ -16,7 +17,17 @@ class Word
 
   def add_definition(attributes)
     new_definition = attributes.fetch('definition')
-    @definition.push(new_definition)
+    unless new_definition == ""
+      @definition.push(new_definition)
+    end
+    return false
+  end
+
+  def change_photo(attributes)
+    new_photo = attributes.fetch('photo_url')
+    unless new_photo == ""
+      @picture = new_photo
+    end
   end
 
   def self.all

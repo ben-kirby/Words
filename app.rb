@@ -26,5 +26,6 @@ post '/word/:id' do
   id = params['id']
   @list = Word.find(id)
   @list.add_definition(params)
+  @list.change_photo(params)
   erb(:index)
 end
