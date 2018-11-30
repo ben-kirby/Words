@@ -1,8 +1,11 @@
 <div class="row">
-
+<% if @list.kind_of?(Array) %>
   <% @list.each do |i| %>
-  
+    <a href="/word/<%= i.id %>"><%= i.new_word %></a>
   <% end %>
+<% else %>
+  <% return false %>
+<% end %>
 
 </div>
 
@@ -18,3 +21,6 @@
     <button type="submit" name="button">Submit!</button>
   </form>
 </div>
+
+
+<%  %>
