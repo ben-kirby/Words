@@ -9,7 +9,11 @@
     <div class="card" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title"><%= @list.new_word %></h5>
-        <p class="card-text"><%= @list.definition %></p>
+        <% @list.definition.each do |i| %>
+          <ul>
+            <li><p class="card-text"><%= i %></p></li>
+          </ul>
+        <% end %>
         <a href="/" class="card-link">Back to the list!</a>
       </div>
     </div>
@@ -33,9 +37,9 @@
   </div>
 <% else %>
   <div class="row">
-    <form action="/" method="post">
+    <form action="'/word/'" method="post">
       <div class="form-group">
-        <input type="text" name="new_word" placeholder="New Word">
+        <input type="text" name="new_definition" placeholder="Add a definition">
       </div>
       <br>
       <button type="submit" name="button">Submit!</button>

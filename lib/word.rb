@@ -4,7 +4,8 @@ class Word
 
   def initialize(attributes)
     @new_word = attributes.fetch(:new_word)
-    @definition = attributes.fetch(:definition)
+    @definition = []
+    @definition.push(attributes.fetch(:definition))
     @id = @@words.length() + 1
   end
 
@@ -12,13 +13,17 @@ class Word
     @@words.push(self)
   end
 
+  def add_definition(attributes)
+    new_definition = attributes.fetch('new_definition')
+    @definition.push(new_definition)
+  end
+
   def self.all
     @@words
   end
 
   def self.find(id)
-    list = @@words
-    list.each do |i|
+    @@words.each do |i|
       if i.id == id.to_i()
         return i
       end

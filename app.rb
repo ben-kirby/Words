@@ -16,8 +16,17 @@ post ('/') do
   erb(:index)
 end
 
-get '/word/:id' do
+get ('/word/:id') do
   id = params['id']
   @list = Word.find(id)
+  erb(:index)
+end
+
+post ('/word/:id') do
+  id = params['id']
+  @list = Word.find(id)
+  @list.add_definition(params)
+  new_definition = params['new_definition']
+  Word.add_definition(new_definition)
   erb(:index)
 end
