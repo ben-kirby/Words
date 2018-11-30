@@ -1,5 +1,5 @@
 class Word
-  attr_accessor :new_word, :definition
+  attr_accessor :new_word, :definitionlist, :id
   @@words = []
 
   def initialize(attributes)
@@ -17,12 +17,10 @@ class Word
   end
 
   def self.find(id)
-    list = all()
+    list = @@words
     list.each do |i|
-      if i.id == id.to_i
+      if i.id == id.to_i()
         return i
-      else
-        false
       end
     end
   end

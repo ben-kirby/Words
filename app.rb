@@ -16,7 +16,7 @@ post ('/') do
   erb(:index)
 end
 
-get (/definition/:id) do
+get ('/definition/:id') do
   id = params[:id]
   @list = Word.find(id)
   erb(:index)
