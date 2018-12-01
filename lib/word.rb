@@ -45,4 +45,8 @@ class Word
   def self.clear
     @@words = []
   end
+
+  def parental_control
+
+  end
 end

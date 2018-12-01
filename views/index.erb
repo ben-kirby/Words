@@ -1,6 +1,5 @@
 <div class="container">
   <div class="row">
-
     <% if @list.kind_of?(Array) %>
     <div class="col-md">
       <form action="/" method="post">
@@ -14,46 +13,45 @@
         <button class="btn btn-primary" type="submit" name="button">Submit!</button>
       </form>
     </div>
-    <% else %>
+    <div class="col-md">
+      <ul class="list-group list-group-flush">
+        <% @list.each do |i| %>
+        <li class="card-text list-group-item"><a href="/word/<%= i.id %>"><%= i.new_word %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<%else%>
+  <div class="container">
+    <div class="card-mb-3">
+      <img class="card-img-top" src="<%= @list.picture%>">
+      <div class="card-body">
+        <h5 class="card-title">Your word is: <%= @list.new_word %></h5>
+        <ul class="list-group list-group-flush">
+          <% @list.definition.each do |i| %>
+          <li class="card-text list-group-item">You said it means: <%= i %></li>
+          <% end %>
+        </ul>
+        <br>
+        <a href="/" class="btn btn-outline-primary">Back to the list!</a>
+      </div>
+    </div>
+    <br>
     <form action='/word/<%= @list.id%>' method="post">
       <div class="form-group">
-        <input type="text" name="definition" placeholder="Add a definition">
+        <input type="text" name="definition" placeholder="Add another definition">
       </div>
       <div class="form-group">
-        <input type="text" name="photo_url" placeholder="Add a picture!">
+        <input type="text" name="photo_url" placeholder="Change the picture!">
       </div>
       <br>
       <button class="btn btn-primary" type="submit" name="button">Submit!</button>
     </form>
-    <% end %>
-
-    <br>
-
-    <% if @list.kind_of?(Array) %>
-    <div class="col-md">
-      <ul>
-        <% @list.each do |i| %>
-        <li><a href="/word/<%= i.id %>"><%= i.new_word %></a></li>
-        <% end %>
-      </ul>
-    </div>
-
-    <% else %>
-    <div class="card mb-3">
-      <img class="card-img-top" src="<%= @list.picture%>">
-      <div class="card-body">
-        <h5 class="card-title"><%= @list.new_word %></h5>
-        <% @list.definition.each do |i| %>
-
-        <p class="card-text"><%= i %></p>
-
-        <% end %>
-        <a href="/" class="btn btn-outline-primary">Back to the list!</a>
-      </div>
-    </div>
-    <% end %>
   </div>
-</div>
+
+<% end %>
+
 
 
 
