@@ -18,6 +18,7 @@ This app will gather words and their definitions from user input. The words will
 ## Setup/Installation Requirements
 
 * In terminal, navigate to the Word directory, and use Sinatra to run the app locally.
+* Alternatively, navigate to https://mysterious-oasis-26832.herokuapp.com/
 
 ## Known Bugs
 
@@ -31,4 +32,4 @@ This app will gather words and their definitions from user input. The words will
 ### License
 
 *Copyright (c) 2018 Ben Kirby*
-*This software is licensed under the MIT license.*
+*This software is licensed under the MIT license.*added
